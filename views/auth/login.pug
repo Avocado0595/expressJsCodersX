@@ -1,0 +1,14 @@
+extends ../layouts/layout.pug
+block content
+    .container
+        if err
+            .alert.alert-danger(role='alert')
+                | #{err}
+        form(class = 'container' method="POST")
+            .form-group
+                label(for='nickname') Nick name
+                input#nickname.form-control(type='text' placeholder='Nick name...' name='nickname' value = values ? values.nickname: "")
+            .form-group
+                label(for='exampleInputPassword1') Password
+                input#exampleInputPassword1.form-control(type='password' placeholder='Password...' name="password" value = values ? values.password: "")
+            button.btn.btn-primary(type='submit') Login

@@ -1,0 +1,18 @@
+extends ../layouts/layout.pug
+
+block content
+    .container
+        if errs
+            .alert.alert-danger(role='alert')
+                | #{errs}
+        form.container(method='POST' action="/users/create")
+            .form-group
+                label(for='name') Name
+                input#name.form-control(type='text' name='name' value = values? values.name:'')                    
+            .form-group
+                label(for='age') Age
+                input#age.form-control(type='number' name='age' value = values? values.age:'')
+            .form-group
+                label(for='phone') Phone
+                input#age.form-control(type='text' name='phone' value = values? values.phone:'')                
+            button.btn.btn-primary(type='submit') Create

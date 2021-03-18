@@ -1,0 +1,12 @@
+extends ../layouts/layout.pug
+
+block content
+    div(class="mt-4 container")
+        .card(style='width: 18rem;')
+            h3 About me!
+            .card-body
+                h5.card-title= user.name
+                p.card-text
+                    | Age: #{user.age}.
+                    | Phone: #{user.phone}.
+                a.btn.btn-primary(href='#') Contact me!

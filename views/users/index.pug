@@ -1,0 +1,38 @@
+extends ../layouts/layout.pug
+
+block content
+    div(class="mt-4 container")
+        form.form-inline.my-2.my-lg-0(action="/users/search" method='GET')
+                input.form-control.mr-sm-2(type='search' placeholder='Find user...' aria-label='Search' name='q')
+                button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+        h3 List user here!
+        - var i = 1;
+        table.table.table-striped
+            thead
+                tr
+                    th(scope='col') STT
+                    th(scope='col') Name
+                    th(scope='col') Age
+                    th(scope='col') Email
+                    th(scope='col') #
+            tbody
+                if users.length
+                    each item in users
+                        tr
+                            th(scope='row') #{i}
+                            td #{item.name}
+                            td #{item.age}
+                            td #{item.phone}
+                            td
+                                a(href="users/detail/" + item.uid) Detail
+                        - i++
+                else
+                    tr
+                        th(colspan=5) Nothing to show!
+
+        //- ul(class="list-group")
+        //-     each item in users
+        //-         li= i + ". " + item.name + " "
+        //-             a(href="users/detail/" + item.uid) Detail
+        //-         - i++
+

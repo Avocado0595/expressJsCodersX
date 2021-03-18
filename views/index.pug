@@ -1,0 +1,10 @@
+extends layouts/layout.pug
+
+block content
+  .container
+      h1= 'Pug - node template engine'
+      #container.col
+          p Hello #{name}! You are amazing
+          p
+      a(href='/users') Click here
+      |  to see list user!
