@@ -5,7 +5,7 @@ block content
         if errs
             .alert.alert-danger(role='alert')
                 | #{errs}
-        form.container(method='POST' action="/users/create")
+        form.container(method='POST' action="/users/create" enctype="multipart/form-data")
             .form-group
                 label(for='name') Name
                 input#name.form-control(type='text' name='name' value = values? values.name:'')                    
@@ -14,5 +14,8 @@ block content
                 input#age.form-control(type='number' name='age' value = values? values.age:'')
             .form-group
                 label(for='phone') Phone
-                input#age.form-control(type='text' name='phone' value = values? values.phone:'')                
+                input#phone.form-control(type='text' name='phone' value = values? values.phone:'')
+            .form-group
+                label(for='phone') Avatar
+                input#avatar.form-control-file(type='file' name='avatar')                  
             button.btn.btn-primary(type='submit') Create

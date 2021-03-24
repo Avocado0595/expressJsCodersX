@@ -20,6 +20,9 @@ module.exports = {
     },
     postcreate: (req, res) => {
         req.body.uid = db.get('users').size() + 1 + '';
+        let fullPath = req.file.path.split('\\');
+        let path = '\\'+fullPath.slice(1,3).join('\\');
+        req.body.avatar = path;
         db.get('users')
             .push(req.body)
             .write()

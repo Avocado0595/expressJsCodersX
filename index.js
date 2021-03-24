@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(express.static('public'));
 const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
+const productsRouter = require('./routes/productsRoute');
 //midleware
 const getmember = require('./middlewares/getmember');
 //config
@@ -23,6 +24,7 @@ app.get('/',getmember.member, (req, res) => {
 //route
 app.use('/users',getmember.member, userRouter);
 app.use('/auth', authRouter);
+app.use('/products', productsRouter);
 
 //open port
 app.listen(port, () => {
