@@ -12,7 +12,7 @@ block content
                             h5.card-title #{item.id}. #{item.name}
                             p.card-text
                                 | #{item.detail}
-                            a.btn.btn-primary(href='#') Add to cart
+                            a.btn.btn-primary(href='/cart/add/' + item.id) Add to cart
 
         ul.pagination.mt-2
             

@@ -4,7 +4,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.container
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-        li.nav-item.active
+        li.nav-item
           if member
             a.nav-link(href='#')
               | #{member.nickname} 
@@ -23,8 +23,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.container
             .dropdown-divider
             a.dropdown-item(href='#') Something else here
         li.nav-item
-          a.nav-link.disabled(href='#') Disabled
-        li.nav-item.active
           a.nav-link(href='/products')
             | Products 
             span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#') Cart

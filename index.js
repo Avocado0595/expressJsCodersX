@@ -12,19 +12,25 @@ app.use(express.static('public'));
 const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
 const productsRouter = require('./routes/productsRoute');
+const cartRouter = require('./routes/cartRoute');
+
 //midleware
 const getmember = require('./middlewares/getmember');
+const sessionId = require('./middlewares/session');
 //config
 app.set('view engine', 'pug');
 app.set('views','./views');
 
-app.get('/',getmember.member, (req, res) => {
+app.use(sessionId);
+
+app.get('/',getmember, (req, res) => {
   res.render('index', {name: "Thanh Xuan"});
 })
 //route
-app.use('/users',getmember.member, userRouter);
+app.use('/users',getmember, userRouter);
 app.use('/auth', authRouter);
-app.use('/products', productsRouter);
+app.use('/products',getmember, productsRouter);
+app.use('/cart',cartRouter);
 
 //open port
 app.listen(port, () => {

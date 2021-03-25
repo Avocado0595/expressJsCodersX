@@ -12,8 +12,8 @@ router.get('/', userscontrollers.index);
 router.get('/search', userscontrollers.search);
 
 //create
-router.get('/create',authvalidation.validation, userscontrollers.create);
-router.post('/create', upload.single('avatar'), usersvaliadation.validation, userscontrollers.postcreate);
+router.get('/create',authvalidation, userscontrollers.create);
+router.post('/create', upload.single('avatar'), usersvaliadation, userscontrollers.postcreate);
 //user detail
 router.get('/detail/:uid', userscontrollers.detail);
 
